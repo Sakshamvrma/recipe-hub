@@ -49,13 +49,13 @@ const recipeSchema=new mongoose.Schema({
     default: 0
   },
   cookingTime: {
-    type: Number,
-    required: [true, 'Plesae provide the cooking time']
+    type: Number
+   // required: [true, 'Plesae provide the cooking time']
   },
   },
   {
-    toJSON: { virtuals: true },//
-    toObject: { virtuals: true }//it mshows the virtual properties in the output for example the reviews and ratings of the recipe
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true }
   });
   // Virtual populate
 recipeSchema.virtual('reviews', {

@@ -1,0 +1,15 @@
+const express=require('express');
+const router=express.Router();
+const recipeControllers=require('../controllers/recipeControllers');
+
+router.
+route('/')
+.get(recipeControllers.getAllRecipes)
+.post(recipeControllers.createRecipe);
+
+router.
+route('/:id')
+.get(recipeControllers.getRecipe)
+
+
+module.exports=router;
