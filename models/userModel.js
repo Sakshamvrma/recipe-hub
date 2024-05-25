@@ -8,7 +8,7 @@ const userSchema=mongoose.Schema({
   email: {
     type: String,
     required: [true, 'Please provide your email'],
-    unique: true,
+    unique: false,
     lowercase: true,
     validate: [validator.isEmail, 'Please provide a valid email']
   },
@@ -44,14 +44,4 @@ const userSchema=mongoose.Schema({
   }
 });
 
-// userSchema.pre('save', async function(next) {
-//   // Only run this function if password was actually modified
-//   if (!this.isModified('password')) return next();
-
-//   // Hash the password with cost of 12
-//   this.password = await bcrypt.hash(this.password, 12);
-
-//   // Delete passwordConfirm field
-//   this.passwordConfirm = undefined;
-//   next();
-// })
+module.exports=mongoose.model('User',userSchema);
