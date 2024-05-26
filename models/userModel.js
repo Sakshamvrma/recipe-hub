@@ -26,6 +26,7 @@ const userSchema=mongoose.Schema({
   passwordConfirm: {
     type: String,
     required: [true, 'Please confirm your password'],
+    select: false,
     validate: {
       // This only works on CREATE and SAVE!!!
       validator: function(el) {

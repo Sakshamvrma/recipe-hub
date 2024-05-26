@@ -9,6 +9,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const morgan = require('morgan');
+const AppError = require('./utils/appError');
 
 app.get('/', (req, res) => {
   res.send('Server is running!');

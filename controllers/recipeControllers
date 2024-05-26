@@ -37,3 +37,25 @@ res.status(201).json({
   })
 }
 )
+exports.updateRecipe=catchAsync(async(req,res,next)=>{
+  const updatedtour=await Recipe.findByIdAndUpdate(req.params.id,req.body,{
+    new:true,
+    runValidators:true
+  })
+  res.status(200).json({
+    status:'success',
+    data:{
+      updatedtour
+    }
+  })
+  })
+  exports.deleteRecipe=catchAsync(async(req,res,next)=>{
+    const recipe=await Recipe.findByIdAndDelete(req.params.id);
+    if (!recipe) {
+      return next(new AppError('No tour found with that ID', 404));
+    }
+    res.status(204).json({
+      status:'success',
+      recipe:null
+    })
+  })
