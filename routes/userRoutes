@@ -1,6 +1,15 @@
 const express=require('express');
 const router=express.Router();
 const userController=require('../controllers/userControllers');
+const authController=require('../controllers/authController');
+
+router.post('/signUp',authController.signUp);
+router.post('/login',authController.login);
+router.get('/forgotPassword',authController.forgotPassword);
+router.post('/resetPassword/:token',authController.resettPassword);
+
+
+
 
 
 router.route('/')
