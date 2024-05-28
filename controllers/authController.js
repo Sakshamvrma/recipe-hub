@@ -11,7 +11,7 @@ exports.signUp=catchAsync(async(req,res,next)=>{
     status:'success',
     token,
     data:{
-      user
+      user//console.log(not working)
     }
   })
 })
