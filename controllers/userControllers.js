@@ -26,3 +26,11 @@ exports.getUser = catchAsync(async (req, res, next) => {
     data: user,
   });
 });
+exports.deleteUser = catchAsync(async (req, res, next) => {
+  await User.findByIdAndDelete(req.params.id);
+  res.status(204).json({
+    status: "success",
+    data: null,
+  });
+});
+
