@@ -9,7 +9,7 @@ const userSchema=mongoose.Schema({
   email: {
     type: String,
     required: [true, 'Please provide your email'],
-    unique: false,
+    unique: true,
     lowercase: true,
     validate: [validator.isEmail, 'Please provide a valid email']
   },
